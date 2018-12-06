@@ -1,15 +1,11 @@
-{-# LANGUAGE OverloadedStrings #-}
 module Lib where
 
 import qualified Data.Text as T
-import qualified Data.Text.IO as TIO
 import Data.Text.Read
 import Data.Either
 
-computeDay1_1 :: IO Integer
-computeDay1_1 = do
-    contents <- TIO.readFile "resources/day1"
-    return . sum . parseIntegers $ contents
+computeDay1_1 :: T.Text -> Integer
+computeDay1_1 = sum . parseIntegers
 
 parseIntegers :: T.Text -> [Integer]
-parseIntegers = map fst . rights . map (\ x -> signed decimal x) . T.lines
+parseIntegers = map fst . rights . map (signed decimal) . T.lines
