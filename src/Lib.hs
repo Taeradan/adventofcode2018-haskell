@@ -9,7 +9,7 @@ import Data.Either
 computeDay1_1 :: IO Integer
 computeDay1_1 = do
     contents <- TIO.readFile "resources/day1"
-    let integers = map fst . rights . map (\ x -> signed decimal x) . T.lines $ contents
-    return $ sum integers
+    return . sum . parseIntegers $ contents
 
-
+parseIntegers :: T.Text -> [Integer]
+parseIntegers = map fst . rights . map (\ x -> signed decimal x) . T.lines
