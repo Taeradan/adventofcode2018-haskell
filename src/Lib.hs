@@ -19,5 +19,7 @@ computeDay1_2 text = fmap snd . find repeatedElement . zip indices $ sumList
   repeatedElement (index, value) =
     (>) index . fromJust . elemIndex value $ sumList
 
+computeDay2_1 text = "plooup"
+
 parseIntegers :: T.Text -> [Integer]
 parseIntegers = map fst . rights . map (signed decimal) . T.lines
