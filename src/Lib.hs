@@ -7,10 +7,10 @@ import           Data.List                      ( find
                                                 )
 import           Data.Maybe
 
-computeDay1_1 :: C.ByteString -> Integer
+computeDay1_1 :: C.ByteString -> Int
 computeDay1_1 = sum . parseIntegers
 
-computeDay1_2 :: C.ByteString -> Maybe Integer
+computeDay1_2 :: C.ByteString -> Maybe Int
 computeDay1_2 text = fmap snd . find repeatedElement . zip indices $ sumList
  where
   indices = [0 ..]
@@ -25,5 +25,5 @@ computeDay2_1 text = countRepeated 3 * countRepeated 2
     map (nub . map C.length . C.group . C.sort) . C.lines $ text
   countRepeated x = length . filter (elem x) $ repeatedLettersCountList
 
-parseIntegers :: C.ByteString -> [Integer]
-parseIntegers = map fst . mapMaybe C.readInteger . C.lines
+parseIntegers :: C.ByteString -> [Int]
+parseIntegers = map fst . mapMaybe C.readInt . C.lines
