@@ -12,4 +12,5 @@ main = do
   putStrLn $ "day 1.2 : " ++ show (computeDay1_2 day1_input)
   day2_input <- B.readFile $ resourcesPath ++ "day2"
   putStrLn $ "day 2.1 : " ++ show (computeDay2_1 day2_input)
+  putStrLn $ "day 2.2 : " ++ show (computeDay2_2 day2_input)
 
